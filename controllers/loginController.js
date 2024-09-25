@@ -15,13 +15,19 @@ export const postLogin = async (req, res) => {
   const user = findUserByUsername(username);
 
   if (!user) {
-    return res.status(401).json({ mesage: "Invalid username or password." });
+    return res.status(401).render("failedAction", {
+      title: "Login failed!",
+      description: "Invalid username or password",
+    });
   }
 
   // Verify the password
   const validPassword = await checkPassowrd(password, user.password);
   if (!validPassword)
-    return res.status(401).json({ message: "Invalid username or password" });
+    return res.status(401).render("failedAction", {
+      title: "Login failed!",
+      description: "Invalid username or password",
+    });
 
   // Generate JWT token
   const token = generateToken(user);
@@ -33,10 +39,8 @@ export const postLogin = async (req, res) => {
     maxAge: 2592000000,
   });
 
-  res
-    .status(200)
-    .render("successfullAct", {
-      title: "Loged in successfully!",
-      description: `Hi ${user.username}! welcome to website.`,
-    });
+  res.status(200).render("successfullAct", {
+    title: "Loged in successfully!",
+    description: `Hi ${user.username}! welcome to website.`,
+  });
 };
