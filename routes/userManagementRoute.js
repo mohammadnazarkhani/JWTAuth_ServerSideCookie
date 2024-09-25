@@ -9,7 +9,7 @@ const router = express.Router();
 router.get(
   "/usermanagement",
   jwtAuthentication,
-  jwtAuthorization,
+  jwtAuthorization(["admin"]),
   getUserMangement
 );
 

@@ -1,15 +1,14 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 // Get needed envs
-const dbInstanceName = process.env.DB_INSTANCE_NAME || "mongodb";
 const dbPort = parseInt(process.env.DB_PORT) || 27017;
-const dbName = process.env.DB_NAME || "myDatabase";
+const dbName = process.env.DB_NAME || "JwtAuth";
 
 mongoose
-  .connect(`${dbInstanceName}://localhost:${dbPort}/${dbName}`)
-  .then(() =>
-    console.log(`Connected to the database: ${dbInstanceName}:${dbName}`)
-  )
-  .catch((error) => console.error(`DatabaseConnection Error: ${error}`));
+  .connect(`mongodb://localhost:${dbPort}/${dbName}`)
+  .then(() => console.log(`Connected to the database: ${dbName}`))
+  .catch((error) => console.error(`Database Connection Error: ${error}`));
 
-export const db = mongoose;
+const db = mongoose;
+
+export default db;

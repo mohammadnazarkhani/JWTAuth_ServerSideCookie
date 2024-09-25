@@ -1,5 +1,5 @@
-import { findUserByUsername } from "../models/Users.js";
-import { checkPassowrd } from "../security/passwordHasher.js";
+import { fetchUserByUsername } from "../models/Users.js";
+import { checkPassword } from "../security/passwordHasher.js";
 import { generateToken } from "../security/jwt.js";
 
 // @desc    Get login page
@@ -12,7 +12,7 @@ export const getLogin = (req, res) => {
 // @route   POST /login
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
-  const user = findUserByUsername(username);
+  const user = await fetchUserByUsername(username);
 
   if (!user) {
     return res.status(401).render("failedAction", {
@@ -22,7 +22,7 @@ export const postLogin = async (req, res) => {
   }
 
   // Verify the password
-  const validPassword = await checkPassowrd(password, user.password);
+  const validPassword = await checkPassword(password, user.password);
   if (!validPassword)
     return res.status(401).render("failedAction", {
       title: "Login failed!",

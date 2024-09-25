@@ -4,7 +4,9 @@ const authorizeRoles = (allowedRoles) => {
     if (!allowedRoles.includes(req.user.role)) {
       return res.status(403).render("failedAction", {
         title: "Access Denied!",
-        description: `You need to be a ${allowedRoles} to access this page.`,
+        description: `You need to be a ${allowedRoles.join(
+          ", "
+        )} to access this page.`,
       });
     }
     next();
