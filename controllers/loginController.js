@@ -39,7 +39,7 @@ export const postLogin = async (req, res) => {
     maxAge: 2592000000,
   });
 
-  res.status(200).render("successfullAct", {
+  res.status(200).render("successfullAction", {
     title: "Loged in successfully!",
     description: `Hi ${user.username}! welcome to website.`,
   });

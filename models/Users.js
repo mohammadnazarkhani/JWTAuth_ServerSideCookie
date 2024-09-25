@@ -34,7 +34,7 @@ export const fetchAllUsers = async () => {
 // @desc    Returns user with specified username
 export const fetchUserByUsername = async (username) => {
   try {
-    const user = await user.findOne({ username });
+    const user = await User.findOne({ username });
     if (user) {
       return user;
     } else {

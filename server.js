@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 dotenv.config();
 
+import db from "./infrastructure/db.js"; 
+
 // Import Routes
 import homeRoute from "./routes/homeRoute.js";
 import registerRoute from "./routes/registerRoute.js";

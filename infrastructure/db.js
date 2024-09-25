@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Get needed envs
 const dbPort = parseInt(process.env.DB_PORT) || 27017;

@@ -1,4 +1,6 @@
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Get needed environment variables
 const saltRounds = parseInt(process.env.BCRYPT_SALT_ROUND, 10) || 10;
