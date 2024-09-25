@@ -13,6 +13,7 @@ export const addUser = async (username, email, password) => {
   try {
     const savedUser = await user.save();
     console.log("User saved: ", savedUser);
+    return true;
   } catch (error) {
     console.error("Error saving user: ", error);
   }

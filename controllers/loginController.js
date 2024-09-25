@@ -3,7 +3,7 @@ import { checkPassowrd } from "../security/passwordHasher.js";
 import { generateToken } from "../security/jwt.js";
 
 // @desc    Get login page
-// @route   POST /login
+// @route   GET /login
 export const getLogin = (req, res) => {
   res.status(200).render("login");
 };
