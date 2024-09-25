@@ -12,6 +12,7 @@
   "version": "1.0.0",
   "description": "Secure JWT-based authentication using server-side cookies to enhance token security and protect against client-side vulnerabilities.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon server.js"
   },
