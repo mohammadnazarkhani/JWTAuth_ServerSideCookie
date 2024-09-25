@@ -2,6 +2,8 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Import Routes
 import homeRoute from "./routes/homeRoute.js";
