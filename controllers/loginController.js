@@ -35,7 +35,7 @@ export const postLogin = async (req, res) => {
   // Store jwt in an HTTP-only cookie
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     maxAge: 2592000000,
   });
 
