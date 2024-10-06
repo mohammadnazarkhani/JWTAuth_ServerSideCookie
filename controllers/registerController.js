@@ -11,6 +11,7 @@ export const getRegister = (req, res) => {
 // @route   POST /register
 export const postRegister = async (req, res) => {
   const { username, email, password } = req.body;
+
   const hashedPassword = await hashPassword(password);
   const userHasCreated = await addUser(username, email, hashedPassword);
 
